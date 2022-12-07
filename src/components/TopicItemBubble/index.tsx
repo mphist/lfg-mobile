@@ -9,11 +9,13 @@ export default function TopicItemBubble({ name }: Props) {
 
 const styles = StyleSheet.create({
   bubble: {
-    backgroundColor: 'rgb(172, 212, 250)',
-    color: 'rgb(76, 73, 73)',
-    borderRadius: 10,
+    backgroundColor: 'black',
+    color: 'white',
+    borderRadius: 6,
     width: 'max-content',
     padding: '5px',
     margin: '5px',
+    display: 'flex',
+    alignItems: 'center',
   },
 })
