@@ -1,17 +1,23 @@
 import { StyleSheet, View } from 'react-native'
-import TopicItemBubble from '../TopicItemBubble'
+import TopicItemBubbleContainer from '../TopicItemBubble'
+import TopicItemsList from '../TopicItemsList'
 
 export default function TopicsListView() {
   const items = [
-    { id: 1, name: 'cats' },
-    { id: 2, name: 'cars' },
-    { id: 3, name: 'chocolate' },
+    { id: '1', name: 'cats' },
+    { id: '2', name: 'cars' },
+    { id: '3', name: 'chocolate' },
   ]
+
+  const data = [
+    { id: 'a', title: 'DS & Algo study group' },
+    { id: 'b', title: 'Discussion on chocolates' },
+  ]
+
   return (
     <View style={styles.container}>
-      {items.map((item) => (
-        <TopicItemBubble name={item.name} key={item.id} />
-      ))}
+      <TopicItemBubbleContainer items={items} />
+      <TopicItemsList data={data} />
     </View>
   )
 }
@@ -19,8 +25,5 @@ export default function TopicsListView() {
 const styles = StyleSheet.create({
   container: {
     margin: '5px',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
   },
 })
