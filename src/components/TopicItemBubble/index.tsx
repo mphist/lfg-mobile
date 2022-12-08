@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    backgroundColor: 'tomato',
   },
   bubble: {
     backgroundColor: 'black',

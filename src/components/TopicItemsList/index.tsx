@@ -1,7 +1,19 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native'
 
 type TopicItems = {
-  data: { id: string; title: string }[]
+  data: Item[]
+}
+
+type Item = {
+  id: string
+  title: string
 }
 
 export default function TopicItemsList({ data }: TopicItems) {
@@ -9,14 +21,25 @@ export default function TopicItemsList({ data }: TopicItems) {
     <View style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        renderItem={({ item }) => <TopicItem item={item} />}
       />
     </View>
   )
 }
 
+function TopicItem({ item }: { item: Item }) {
+  return (
+    <Pressable style={({ pressed }) => styles.pressable}>
+      <Text>{item.title}</Text>
+    </Pressable>
+  )
+}
+
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'pink',
+  container: {},
+  pressable: {
+    borderWidth: 1,
+    padding: 5,
+    marginVertical: 2,
   },
 })
