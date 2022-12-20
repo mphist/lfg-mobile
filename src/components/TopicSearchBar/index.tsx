@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     margin: '5px',
+    marginTop: '60px',
   },
   searchBar: {
     width: '250px',
@@ -24,5 +25,6 @@ const styles = StyleSheet.create({
     height: '40px',
     borderColor: 'gray',
     borderRadius: 2,
+    outlineStyle: 'none',
   },
 })

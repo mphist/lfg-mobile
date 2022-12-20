@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import TopicItemBubbleContainer from '../TopicItemBubble'
-import TopicItemsList from '../TopicItemsList'
+import TopicItemsList, { Item } from '../TopicItemsList'
 
 export default function TopicsListView() {
   const items = [
@@ -9,9 +9,29 @@ export default function TopicsListView() {
     { id: '3', name: 'chocolate' },
   ]
 
-  const data = [
-    { id: 'a', title: 'DS & Algo study group' },
-    { id: 'b', title: 'Discussion on chocolates' },
+  const data: Item[] = [
+    {
+      id: 'a',
+      title: 'DS & Algo study group',
+      host: {
+        id: '1',
+        name: 'Algoman',
+        photoUrl: 'photoUrl',
+      },
+      members: [{ id: '2', name: 'Algochoco', photoUrl: 'no-photo' }],
+      dateCreated: new Date(2022, 11, 19),
+    },
+    {
+      id: 'b',
+      title: 'Discussion on chocolates',
+      host: {
+        id: '2',
+        name: 'Chocoman',
+        photoUrl: 'photoUrl',
+      },
+      members: [{ id: '3', name: 'Chocoparty', photoUrl: 'no-photo' }],
+      dateCreated: new Date(2022, 11, 18),
+    },
   ]
 
   return (
