@@ -11,6 +11,14 @@ export default function TopicSearchBar() {
         placeholder='Search topics'
         onChangeText={(value) => sestSearchValue(value)}
         value={searchValue}
+        style={{
+          height: '40px',
+          width: '370px',
+          backgroundColor: 'white',
+        }}
+        placeholderTextColor='black'
+        iconColor='black'
+        inputStyle={{ color: 'black' }}
       />
     </View>
   )
