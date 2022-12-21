@@ -1,8 +1,8 @@
 import { ImageBackground, StyleSheet, View } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import type { StackParamList } from '../../../App'
-import TopicSearchBar from '../TopicSearchBar'
-import TopicsListView from '../TopicsListView'
+import TopicSearchBar from '../TopicSearchBar/TopicSearchBar'
+import TopicsListView from '../TopicsListView/TopicsListView'
 const backgroundImg = require('../../../assets/bg.png')
 
 export default function TopicsTabView({

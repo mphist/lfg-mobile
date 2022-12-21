@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
-import TopicItemBubbleContainer from '../TopicItemBubble'
-import TopicItemsList, { Item } from '../TopicItemsList'
+import TopicItemBubbleContainer from '../TopicItemBubble/TopicItemBubble'
+import TopicItemsList, { Item } from '../TopicItemsList/TopicItemsList'
 
 export default function TopicsListView() {
   const items = [

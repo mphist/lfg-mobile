@@ -1,4 +1,4 @@
-import { getDaysPassedFrom } from '.'
+import { getDaysPassedFrom } from './TopicItemsList'
 
 describe('Test TopicItemsList', () => {
   it('getDaysPassed() should return yesterday', () => {
