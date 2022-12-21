@@ -30,7 +30,7 @@ export default function App() {
             name='Topics'
             component={TopicsTabView}
             // options={{
-            //   header: () => <Header name='Topics' />,
+            //   headerTintColor: 'white',
             // }}
           />
           <Tab.Screen name='testView' component={TestView} />

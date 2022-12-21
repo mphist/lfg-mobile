@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, StyleSheet, TextInput, View } from 'react-native'
 import { useState } from 'react'
 import { Searchbar, IconButton, Tooltip } from 'react-native-paper'
