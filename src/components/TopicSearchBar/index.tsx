@@ -1,10 +1,17 @@
+import React from 'react'
 import { Button, StyleSheet, TextInput, View } from 'react-native'
+import { useState } from 'react'
+import { Searchbar, IconButton, Tooltip } from 'react-native-paper'
 
 export default function TopicSearchBar() {
+  const [searchValue, sestSearchValue] = useState('')
   return (
     <View style={styles.container}>
-      <TextInput placeholder='Search topics' style={styles.searchBar} />
-      <Button title='GO' />
+      <Searchbar
+        placeholder='Search topics'
+        onChangeText={(value) => sestSearchValue(value)}
+        value={searchValue}
+      />
     </View>
   )
 }
