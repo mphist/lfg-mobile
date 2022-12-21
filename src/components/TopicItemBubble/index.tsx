@@ -26,11 +26,12 @@ function TopicItemBubble({ name }: TopicItemBubbleProps) {
 
 const styles = StyleSheet.create({
   container: {
-    // margin: '5px',
     marginVertical: '5px',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    width: '380px',
+    marginHorizontal: 'auto',
   },
   bubble: {
     backgroundColor: 'black',
