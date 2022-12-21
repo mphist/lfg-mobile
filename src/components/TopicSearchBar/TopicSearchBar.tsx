@@ -15,9 +15,9 @@ export default function TopicSearchBar() {
           width: '370px',
           backgroundColor: 'white',
         }}
-        placeholderTextColor='black'
+        placeholderTextColor='gray'
         iconColor='black'
-        inputStyle={{ color: 'black' }}
+        inputStyle={{ color: 'black', fontSize: 14 }}
       />
     </View>
   )
