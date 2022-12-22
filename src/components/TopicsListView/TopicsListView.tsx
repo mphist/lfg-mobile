@@ -40,7 +40,7 @@ export default function TopicsListView() {
 
   return (
     <View style={styles.container}>
-      <TopicItemBubbleContainer items={items} />
+      {/* <TopicItemBubbleContainer items={items} /> */}
       <TopicItemsList data={data} />
     </View>
   )

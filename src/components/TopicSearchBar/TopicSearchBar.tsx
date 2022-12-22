@@ -1,9 +1,10 @@
-import { Button, StyleSheet, TextInput, View } from 'react-native'
+import { Button, StyleSheet, TextInput, View, Dimensions } from 'react-native'
 import { useState } from 'react'
 import { Searchbar, IconButton, Tooltip } from 'react-native-paper'
 
 export default function TopicSearchBar() {
   const [searchValue, sestSearchValue] = useState('')
+  const screenHeight = Dimensions.get('screen').height
   return (
     <View style={styles.container}>
       <Searchbar
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     margin: 5,
-    marginTop: 60,
+    marginTop: '30%',
   },
   searchBar: {
     height: 40,

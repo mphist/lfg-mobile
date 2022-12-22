@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   container: {
     width: 360,
     alignSelf: 'center',
+    marginTop: '5%',
   },
   pressable: {
     padding: 7,
