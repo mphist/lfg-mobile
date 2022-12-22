@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     width: 360,
     alignSelf: 'center',
     marginTop: '5%',
+    height: '86%',
   },
   pressable: {
     padding: 7,
