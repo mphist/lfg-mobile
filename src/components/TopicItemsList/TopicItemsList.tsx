@@ -1,4 +1,12 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
+import { useState } from 'react'
+import {
+  FlatList,
+  LayoutAnimation,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
 
 type TopicItems = {
   data: Item[]
@@ -10,6 +18,7 @@ export type Item = {
   host: User
   members: User[]
   dateCreated: Date
+  description: string
 }
 
 type User = {
@@ -45,11 +54,21 @@ export const getDaysPassedFrom = (dateCreated: Date) => {
 
 //TODO: replace members with their photo
 function TopicItem({ item }: { item: Item }) {
+  const [expanded, setExpanded] = useState(false)
+
+  const handlePress = () => {
+    LayoutAnimation.configureNext({
+      duration: 200,
+      create: { type: 'linear', property: 'opacity' },
+      // update: { type: 'spring', springDamping: 0.4 },
+      // delete: { type: 'linear', property: 'opacity' },
+    })
+    setExpanded((prev) => !prev)
+  }
+
   return (
-    <Pressable style={({ pressed }) => styles.pressable}>
-      <Text>
-        <h4 style={styles.h4}>{item.title}</h4>
-      </Text>
+    <Pressable style={({ pressed }) => styles.pressable} onPress={handlePress}>
+      <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.text}>
         Host: <Text style={styles.host}>{item.host.name}</Text>
       </Text>
@@ -62,14 +81,15 @@ function TopicItem({ item }: { item: Item }) {
           <Text key={member.id}>{member.name}</Text>
         ))}
       </Text>
+      {expanded && <Text style={styles.description}>{item.description}</Text>}
     </Pressable>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: '370px',
-    marginHorizontal: 'auto',
+    width: 360,
+    alignSelf: 'center',
   },
   pressable: {
     padding: 7,
@@ -77,15 +97,21 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginVertical: 6,
   },
-  h4: {
+  title: {
     marginTop: 2,
     marginBottom: 6,
+    fontWeight: '500',
   },
   host: {
     fontStyle: 'italic',
   },
   text: {
     marginTop: 1,
+    marginBottom: 1,
+    fontSize: 13,
+  },
+  description: {
+    marginTop: 10,
     marginBottom: 1,
     fontSize: 13,
   },

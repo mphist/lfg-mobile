@@ -10,10 +10,7 @@ export default function TopicsTabView({
 }: NativeStackScreenProps<StackParamList, 'Topics'>) {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={{ uri: backgroundImg }}
-        style={styles.background}
-      >
+      <ImageBackground source={backgroundImg} style={styles.background}>
         <TopicSearchBar />
         <TopicsListView />
       </ImageBackground>
@@ -24,6 +21,6 @@ export default function TopicsTabView({
 const styles = StyleSheet.create({
   container: {},
   background: {
-    height: '100vh',
+    height: '100%',
   },
 })

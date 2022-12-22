@@ -20,6 +20,8 @@ export default function TopicsListView() {
       },
       members: [{ id: '2', name: 'Algochoco', photoUrl: 'no-photo' }],
       dateCreated: new Date(2022, 11, 19),
+      description:
+        'Looking for a group to study data strcutures and algorithms together. Ideal group size is 8 people. Anyone is welcome to join regardless of their level of knowledge.',
     },
     {
       id: 'b',
@@ -31,6 +33,8 @@ export default function TopicsListView() {
       },
       members: [{ id: '3', name: 'Chocoparty', photoUrl: 'no-photo' }],
       dateCreated: new Date(2022, 11, 18),
+      description:
+        'Join if you love chocolates. Share your special recipes on home-made chocolates. ',
     },
   ]
 
@@ -44,6 +48,6 @@ export default function TopicsListView() {
 
 const styles = StyleSheet.create({
   container: {
-    margin: '5px',
+    margin: 5,
   },
 })

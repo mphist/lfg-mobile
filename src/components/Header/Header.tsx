@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   header: {
     display: 'flex',
     justifyContent: 'center',
-    padding: '10px',
+    padding: 10,
     fontSize: 20,
   },
 })

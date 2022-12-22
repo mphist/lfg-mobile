@@ -10,11 +10,7 @@ export default function TopicSearchBar() {
         placeholder='Search topics'
         onChangeText={(value) => sestSearchValue(value)}
         value={searchValue}
-        style={{
-          height: '40px',
-          width: '370px',
-          backgroundColor: 'white',
-        }}
+        style={styles.searchBar}
         placeholderTextColor='gray'
         iconColor='black'
         inputStyle={{ color: 'black', fontSize: 14 }}
@@ -29,16 +25,12 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     display: 'flex',
     flexDirection: 'row',
-    margin: '5px',
-    marginTop: '60px',
+    margin: 5,
+    marginTop: 60,
   },
   searchBar: {
-    width: '250px',
-    borderWidth: 1,
-    paddingLeft: '5px',
-    height: '40px',
-    borderColor: 'gray',
-    borderRadius: 2,
-    outlineStyle: 'none',
+    height: 40,
+    width: 360,
+    backgroundColor: 'white',
   },
 })
