@@ -58,11 +58,11 @@ export const getDaysPassedFrom = (dateCreated: Date) => {
 function TopicItem({ item }: { item: Item }) {
   const [expanded, setExpanded] = useState(false)
 
-  const handlePress = () => {
+  const handlePress = (length: number) => {
     LayoutAnimation.configureNext({
-      duration: 200,
+      duration: 1.5 * length,
       create: { type: 'linear', property: 'opacity' },
-      // update: { type: 'spring', springDamping: 0.4 },
+      update: { type: 'linear', property: 'opacity' },
       // delete: { type: 'linear', property: 'opacity' },
     })
     setExpanded((prev) => !prev)
@@ -71,7 +71,10 @@ function TopicItem({ item }: { item: Item }) {
   const handleJoin = () => {}
 
   return (
-    <Pressable style={({ pressed }) => styles.pressable} onPress={handlePress}>
+    <Pressable
+      style={({ pressed }) => styles.pressable}
+      onPress={() => handlePress(item.description.length)}
+    >
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{item.title}</Text>
         {expanded && (
