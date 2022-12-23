@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {
   FlatList,
+  Image,
   LayoutAnimation,
   Pressable,
   StyleSheet,
@@ -92,10 +93,20 @@ function TopicItem({ item }: { item: Item }) {
       <Text style={styles.text}>
         Date: <Text>{getDaysPassedFrom(item.dateCreated)}</Text>
       </Text>
-      <Text style={styles.text}>
-        Members:{' '}
+      <Text style={{ ...styles.text, marginTop: 10 }}>
+        {/* Members:{' '} */}
         {item.members.map((member) => (
-          <Text key={member.id}>{member.name}</Text>
+          // <Text key={member.id}>{member.name}</Text>
+          <View key={member.id} style={{ paddingRight: 3 }}>
+            <Image
+              source={member.photoUrl}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+              }}
+            />
+          </View>
         ))}
       </Text>
       {expanded && <Text style={styles.description}>{item.description}</Text>}
