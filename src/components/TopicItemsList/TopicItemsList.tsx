@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native'
+import { Button } from 'react-native-paper'
 
 type TopicItems = {
   data: Item[]
@@ -66,9 +67,25 @@ function TopicItem({ item }: { item: Item }) {
     setExpanded((prev) => !prev)
   }
 
+  const handleJoin = () => {}
+
   return (
     <Pressable style={({ pressed }) => styles.pressable} onPress={handlePress}>
-      <Text style={styles.title}>{item.title}</Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>{item.title}</Text>
+        {expanded && (
+          <Button
+            mode='contained-tonal'
+            compact
+            onPress={handleJoin}
+            style={{ marginLeft: 20, backgroundColor: 'powderblue' }}
+            labelStyle={{ fontSize: 10, fontWeight: 'bold' }}
+            uppercase
+          >
+            Join
+          </Button>
+        )}
+      </View>
       <Text style={styles.text}>
         Host: <Text style={styles.host}>{item.host.name}</Text>
       </Text>
@@ -100,9 +117,8 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   title: {
-    marginTop: 2,
-    marginBottom: 6,
     fontWeight: '500',
+    width: '80%',
   },
   host: {
     fontStyle: 'italic',
@@ -116,5 +132,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 1,
     fontSize: 13,
+  },
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
   },
 })
