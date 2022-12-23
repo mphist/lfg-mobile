@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: '500',
     width: '80%',
+    marginBottom: 23,
   },
   host: {
     fontStyle: 'italic',
