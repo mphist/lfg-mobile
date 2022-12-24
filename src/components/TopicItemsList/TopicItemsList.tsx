@@ -54,7 +54,6 @@ export const getDaysPassedFrom = (dateCreated: Date) => {
   return formatter.format(-1 * timePassed, 'day')
 }
 
-//TODO: replace members with their photo
 function TopicItem({ item }: { item: Item }) {
   const [expanded, setExpanded] = useState(false)
 
@@ -79,11 +78,19 @@ function TopicItem({ item }: { item: Item }) {
         <Text style={styles.title}>{item.title}</Text>
         {expanded && (
           <Button
-            mode='contained-tonal'
             compact
             onPress={handleJoin}
-            style={{ marginLeft: 20, backgroundColor: 'powderblue' }}
-            labelStyle={{ fontSize: 10, fontWeight: 'bold' }}
+            style={{
+              marginLeft: 20,
+              backgroundColor: '#c2eaf2',
+              borderRadius: 10,
+              opacity: 0.7,
+            }}
+            labelStyle={{
+              fontSize: 10,
+              fontWeight: 'bold',
+              color: 'black',
+            }}
             uppercase
           >
             Join
@@ -147,6 +154,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 1,
     fontSize: 13,
+    width: '95%',
   },
   titleContainer: {
     display: 'flex',
