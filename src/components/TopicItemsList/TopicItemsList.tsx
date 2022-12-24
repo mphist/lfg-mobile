@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   pressable: {
     padding: 7,
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255,255,255, 0.7)',
     borderRadius: 15,
     marginVertical: 6,
   },
