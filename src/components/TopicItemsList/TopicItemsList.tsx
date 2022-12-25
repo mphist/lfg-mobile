@@ -56,14 +56,22 @@ export const getDaysPassedFrom = (dateCreated: Date) => {
 
 function TopicItem({ item }: { item: Item }) {
   const [expanded, setExpanded] = useState(false)
+  const [visible, setVisible] = useState(false)
+
+  function updateVisibility(): (() => void) | undefined {
+    return () => setVisible((prev) => !prev)
+  }
 
   const handlePress = (length: number) => {
-    LayoutAnimation.configureNext({
-      duration: 1.5 * length,
-      create: { type: 'linear', property: 'opacity' },
-      update: { type: 'linear', property: 'opacity' },
-      // delete: { type: 'linear', property: 'opacity' },
-    })
+    LayoutAnimation.configureNext(
+      {
+        duration: 200,
+        create: { type: 'linear', property: 'opacity' },
+        update: { type: 'linear', property: 'opacity' },
+        // delete: { type: 'linear', property: 'opacity' },
+      },
+      updateVisibility()
+    )
     setExpanded((prev) => !prev)
   }
 
@@ -119,7 +127,15 @@ function TopicItem({ item }: { item: Item }) {
           </View>
         ))}
       </Text>
-      {expanded && <Text style={styles.description}>{item.description}</Text>}
+      {expanded && (
+        <Text
+          style={
+            visible ? { ...styles.description, opacity: 1 } : styles.description
+          }
+        >
+          {item.description}
+        </Text>
+      )}
     </Pressable>
   )
 }
@@ -155,6 +171,7 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     fontSize: 13,
     width: '95%',
+    opacity: 0,
   },
   titleContainer: {
     display: 'flex',
