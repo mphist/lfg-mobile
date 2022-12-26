@@ -21,12 +21,18 @@ export type Item = {
   members: User[]
   dateCreated: Date
   description: string
+  joined: boolean
 }
 
 type User = {
   id: string
   name: string
   photoUrl: string
+}
+
+type JoinButtonProps = {
+  name: string
+  handleJoin?: () => void
 }
 
 export default function TopicItemsList({ data }: TopicItems) {
@@ -84,26 +90,12 @@ function TopicItem({ item }: { item: Item }) {
     >
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{item.title}</Text>
-        {expanded && (
-          <Button
-            compact
-            onPress={handleJoin}
-            style={{
-              marginLeft: 20,
-              backgroundColor: '#c2eaf2',
-              borderRadius: 10,
-              opacity: 0.7,
-            }}
-            labelStyle={{
-              fontSize: 10,
-              fontWeight: 'bold',
-              color: 'black',
-            }}
-            uppercase
-          >
-            Join
-          </Button>
-        )}
+        {expanded &&
+          (item.joined ? (
+            <JoinButton name='joined' />
+          ) : (
+            <JoinButton name='join' handleJoin={handleJoin} />
+          ))}
       </View>
       <Text style={styles.text}>
         Host: <Text style={styles.host}>{item.host.name}</Text>
@@ -137,6 +129,30 @@ function TopicItem({ item }: { item: Item }) {
         </Text>
       )}
     </Pressable>
+  )
+}
+
+function JoinButton({ handleJoin, name }: JoinButtonProps) {
+  return (
+    <Button
+      compact
+      onPress={handleJoin}
+      style={{
+        marginLeft: 20,
+        backgroundColor: name === 'join' ? '#c2eaf2' : 'red',
+        borderRadius: 10,
+        opacity: 0.7,
+        width: 49,
+      }}
+      labelStyle={{
+        fontSize: name === 'join' ? 10 : 8,
+        fontWeight: 'bold',
+        color: 'black',
+      }}
+      uppercase
+    >
+      {name}
+    </Button>
   )
 }
 

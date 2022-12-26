@@ -32,6 +32,7 @@ export default function TopicsListView() {
       dateCreated: new Date(2022, 11, 19),
       description:
         'Looking for a group to study data strcutures and algorithms together. Ideal group size is 8 people. Anyone is welcome to join regardless of their level of knowledge.',
+      joined: true,
     },
     {
       id: 'b',
@@ -48,6 +49,7 @@ export default function TopicsListView() {
       dateCreated: new Date(2022, 11, 18),
       description:
         'Join if you love chocolates. Share your special recipes on home-made chocolates. ',
+      joined: false,
     },
   ]
 
