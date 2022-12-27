@@ -3,14 +3,14 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import type { StackParamList } from '../../../App'
 import TopicSearchBar from '../TopicSearchBar/TopicSearchBar'
 import TopicsListView from '../TopicsListView/TopicsListView'
-const backgroundImg = require('../../../assets/bg.png')
+import { BACKGROUND_IMAGE } from '../../constants'
 
 export default function TopicsTabView({
   navigation,
 }: NativeStackScreenProps<StackParamList, 'Topics'>) {
   return (
     <View style={styles.container}>
-      <ImageBackground source={backgroundImg} style={styles.background}>
+      <ImageBackground source={BACKGROUND_IMAGE} style={styles.background}>
         <TopicSearchBar />
         <TopicsListView />
       </ImageBackground>

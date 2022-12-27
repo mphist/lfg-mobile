@@ -6,11 +6,11 @@ import { Provider as PaperProvider } from 'react-native-paper'
 import MaterialCommunityiIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import TopicsTabView from './src/components/TopicsTabView/TopicsTabView'
-import TestView from './src/components/TestView'
+import GroupsView from './src/components/GroupsView/GroupsView'
 
 export type StackParamList = {
   Topics: undefined
-  testView: undefined
+  Groups: undefined
 }
 
 const Stack = createNativeStackNavigator<StackParamList>()
@@ -41,7 +41,7 @@ export default function App() {
           />
           <Tab.Screen
             name='Groups'
-            component={TestView}
+            component={GroupsView}
             options={{
               tabBarIcon: () => (
                 <MaterialCommunityiIcons name='account-multiple' size={20} />
