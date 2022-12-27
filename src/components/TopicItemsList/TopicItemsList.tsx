@@ -139,7 +139,7 @@ function JoinButton({ handleJoin, name }: JoinButtonProps) {
       onPress={handleJoin}
       style={{
         marginLeft: 20,
-        backgroundColor: name === 'join' ? '#c2eaf2' : 'red',
+        backgroundColor: name === 'join' ? '#c2eaf2' : 'lightgray',
         borderRadius: 10,
         opacity: 0.7,
         width: 49,
