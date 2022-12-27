@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 import { Button } from 'react-native-paper'
 
-type GroupItems = {
+export type GroupItems = {
   data: Item[]
 }
 
@@ -31,9 +31,10 @@ type User = {
   photoUrl: string
 }
 
-type JoinButtonProps = {
-  name: string
+type ActionButtonProps = {
+  name?: string
   handleJoin?: () => void
+  handleLeave?: () => void
 }
 
 export default function GroupItemsList({ data }: GroupItems) {
@@ -61,7 +62,13 @@ export const getDaysPassedFrom = (dateCreated: Date) => {
   return formatter.format(-1 * timePassed, 'day')
 }
 
-function GroupItem({ item }: { item: Item }) {
+export function GroupItem({
+  item,
+  isMyGroupsTab,
+}: {
+  item: Item
+  isMyGroupsTab?: boolean
+}) {
   const [expanded, setExpanded] = useState(false)
   const [visible, setVisible] = useState(false)
 
@@ -83,6 +90,7 @@ function GroupItem({ item }: { item: Item }) {
   }
 
   const handleJoin = () => {}
+  const handleLeave = () => {}
 
   return (
     <Pressable
@@ -91,11 +99,15 @@ function GroupItem({ item }: { item: Item }) {
     >
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{item.title}</Text>
+        {expanded && isMyGroupsTab && (
+          <ActionButton name='leave' handleLeave={handleLeave} />
+        )}
         {expanded &&
+          !isMyGroupsTab &&
           (item.joined ? (
-            <JoinButton name='joined' />
+            <ActionButton name='joined' />
           ) : (
-            <JoinButton name='join' handleJoin={handleJoin} />
+            <ActionButton name='join' handleJoin={handleJoin} />
           ))}
       </View>
       <Text style={styles.text}>
@@ -133,14 +145,19 @@ function GroupItem({ item }: { item: Item }) {
   )
 }
 
-function JoinButton({ handleJoin, name }: JoinButtonProps) {
+function ActionButton({ handleJoin, handleLeave, name }: ActionButtonProps) {
+  const getBackgroundColor = () => {
+    if (name === 'join') return '#c2eaf2'
+    if (name === 'leave') return 'tomato'
+    return 'lightgray'
+  }
   return (
     <Button
       compact
-      onPress={handleJoin}
+      onPress={handleJoin || handleLeave}
       style={{
         marginLeft: 20,
-        backgroundColor: name === 'join' ? '#c2eaf2' : 'lightgray',
+        backgroundColor: getBackgroundColor(),
         borderRadius: 10,
         opacity: 0.7,
         width: 49,
