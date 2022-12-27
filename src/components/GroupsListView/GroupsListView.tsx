@@ -1,6 +1,5 @@
 import { StyleSheet, View } from 'react-native'
-import TopicItemBubbleContainer from '../TopicItemBubble/TopicItemBubble'
-import TopicItemsList, { Item } from '../TopicItemsList/TopicItemsList'
+import GroupItemsList, { Item } from '../GroupItemsList/GroupItemsList'
 
 const cat1 = require('../../../assets/cat1.jpg')
 const cat2 = require('../../../assets/cat2.jpg')
@@ -8,7 +7,7 @@ const cat3 = require('../../../assets/cat3.jpg')
 const cat4 = require('../../../assets/cat4.jpg')
 const cat5 = require('../../../assets/cat5.jpg')
 
-export default function TopicsListView() {
+export default function GroupsListView() {
   const items = [
     { id: '1', name: 'cats' },
     { id: '2', name: 'cars' },
@@ -55,8 +54,7 @@ export default function TopicsListView() {
 
   return (
     <View style={styles.container}>
-      {/* <TopicItemBubbleContainer items={items} /> */}
-      <TopicItemsList data={data} />
+      <GroupItemsList data={data} />
     </View>
   )
 }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {
   FlatList,
   Image,
+  ImageSourcePropType,
   LayoutAnimation,
   Pressable,
   StyleSheet,
@@ -10,7 +11,7 @@ import {
 } from 'react-native'
 import { Button } from 'react-native-paper'
 
-type TopicItems = {
+type GroupItems = {
   data: Item[]
 }
 
@@ -35,12 +36,12 @@ type JoinButtonProps = {
   handleJoin?: () => void
 }
 
-export default function TopicItemsList({ data }: TopicItems) {
+export default function GroupItemsList({ data }: GroupItems) {
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
-        renderItem={({ item }) => <TopicItem item={item} />}
+        renderItem={({ item }) => <GroupItem item={item} />}
       />
     </View>
   )
@@ -60,7 +61,7 @@ export const getDaysPassedFrom = (dateCreated: Date) => {
   return formatter.format(-1 * timePassed, 'day')
 }
 
-function TopicItem({ item }: { item: Item }) {
+function GroupItem({ item }: { item: Item }) {
   const [expanded, setExpanded] = useState(false)
   const [visible, setVisible] = useState(false)
 
@@ -109,7 +110,7 @@ function TopicItem({ item }: { item: Item }) {
           // <Text key={member.id}>{member.name}</Text>
           <View key={member.id} style={{ paddingRight: 3 }}>
             <Image
-              source={member.photoUrl}
+              source={member.photoUrl as ImageSourcePropType}
               style={{
                 width: 40,
                 height: 40,

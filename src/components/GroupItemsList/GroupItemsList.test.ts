@@ -1,6 +1,6 @@
-import { getDaysPassedFrom } from './TopicItemsList'
+import { getDaysPassedFrom } from './GroupItemsList'
 
-describe('Test TopicItemsList', () => {
+describe('Test GroupItemsList', () => {
   it('getDaysPassed() should return yesterday', () => {
     const currentDate = new Date()
     const days = getDaysPassedFrom(

@@ -2,13 +2,13 @@ import { Button, StyleSheet, TextInput, View, Dimensions } from 'react-native'
 import { useState } from 'react'
 import { Searchbar, IconButton, Tooltip } from 'react-native-paper'
 
-export default function TopicSearchBar() {
+export default function GroupsSearchBar() {
   const [searchValue, sestSearchValue] = useState('')
   const screenHeight = Dimensions.get('screen').height
   return (
     <View style={styles.container}>
       <Searchbar
-        placeholder='Search topics'
+        placeholder='Search groups'
         onChangeText={(value) => sestSearchValue(value)}
         value={searchValue}
         style={styles.searchBar}

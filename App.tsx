@@ -5,12 +5,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Provider as PaperProvider } from 'react-native-paper'
 import MaterialCommunityiIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import TopicsTabView from './src/components/TopicsTabView/TopicsTabView'
-import GroupsView from './src/components/GroupsView/GroupsView'
+import GroupsTabView from './src/components/GroupsTabView/GroupsTabView'
+import MyGroupsView from './src/components/MyGroupsView/MyGroupsView'
 
 export type StackParamList = {
-  Topics: undefined
   Groups: undefined
+  'My Groups': undefined
 }
 
 const Stack = createNativeStackNavigator<StackParamList>()
@@ -31,8 +31,8 @@ export default function App() {
           }}
         >
           <Tab.Screen
-            name='Topics'
-            component={TopicsTabView}
+            name='Groups'
+            component={GroupsTabView}
             options={{
               tabBarIcon: () => (
                 <MaterialCommunityiIcons name='view-headline' size={20} />
@@ -40,8 +40,8 @@ export default function App() {
             }}
           />
           <Tab.Screen
-            name='Groups'
-            component={GroupsView}
+            name='My Groups'
+            component={MyGroupsView}
             options={{
               tabBarIcon: () => (
                 <MaterialCommunityiIcons name='account-multiple' size={20} />

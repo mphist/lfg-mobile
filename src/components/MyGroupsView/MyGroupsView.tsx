@@ -1,7 +1,7 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { ImageBackground, StyleSheet, View } from 'react-native'
 import { BACKGROUND_IMAGE } from '../../constants'
 
-export default function GroupsView() {
+export default function MyGroupsView() {
   return (
     <View>
       <ImageBackground
